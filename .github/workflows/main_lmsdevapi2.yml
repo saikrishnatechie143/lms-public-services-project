@@ -15,6 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: CD to api folder
+      run: |
+        cd ./api
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -31,7 +35,7 @@ jobs:
       with:
         push: true
         tags: lmsregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8ac612d4e38d4c099d009137ad82829f }}/lmspublicdevapi:${{ github.sha }}
-        file: ./api/Dockerfile
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
