@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: lmsregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8ac612d4e38d4c099d009137ad82829f }}/lmspublicdevapi:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./api/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
